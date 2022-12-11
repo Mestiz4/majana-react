@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import "./ItemListContainer.css"
 
 import { products } from '../../products'
 import ProductsCard from '../productsCard/ProductsCard'
 
 
 
-const ItemListContainer = ( { greeting } ) => {
+const ItemListContainer = ( ) => {
 
     const [items, setItems] = useState([])
 
@@ -25,14 +26,17 @@ const ItemListContainer = ( { greeting } ) => {
     console.log(items)
 
   return (
-    <div>
-    <h2>{greeting}</h2>
+    <div className='cards'>
+    
 
     {
     items.map((element) =>{
         return (
+
+            <div>
         
         <ProductsCard key={element.name} element={element}/>
+        </div>
 
         )}
 
