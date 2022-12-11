@@ -11,8 +11,8 @@ const NavBar = () =>{
             <ul className="navbar">
                 <li className="navbar-item">Todos los productos</li>
                 <li className="navbar-item">Pulpas</li>
+                <li className="navbar-item">Trozos de fruta</li>
                 <li className="navbar-item">Tubérculos</li>
-                <li className="navbar-item">Café</li>
             </ul>
             <CartWidget />
         </div>
