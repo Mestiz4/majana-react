@@ -1,5 +1,6 @@
 import "./NavBar.css"
 import {CartWidget} from "../cartWidget/CartWidget"
+import { Link } from "react-router-dom"
 
 const NavBar = () =>{
 
@@ -9,10 +10,10 @@ const NavBar = () =>{
                 <img className="logo-main" src="https://res.cloudinary.com/dt08n3f7k/image/upload/v1670710192/majana-logo_ik1feu.png" alt="main logo"/>
             </div>
             <ul className="navbar">
-                <li className="navbar-item">Todos los productos</li>
-                <li className="navbar-item">Pulpas</li>
-                <li className="navbar-item">Trozos de fruta</li>
-                <li className="navbar-item">Tubérculos</li>
+                <Link className="navbar-item" to="/">Todos los productos</Link>
+                <Link className="navbar-item" to="/category/pulpa">Pulpas</Link>
+                <Link className="navbar-item" to="/category/trozos">Trozos de fruta</Link>
+                <Link className="navbar-item" to="/category/tuberculo">Tubérculos</Link>
             </ul>
             <CartWidget />
         </div>
