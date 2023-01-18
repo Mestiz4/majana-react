@@ -25,7 +25,7 @@ export const products =[
         stock: 8,
         descripcion: "Tuberculo fresco para acompañar tus platos",
         categoria: "tuberculo",
-        img: "https://res.cloudinary.com/dt08n3f7k/image/upload/v1670726411/Mango1_jor5wg.jpg",
+        img: "https://res.cloudinary.com/dyj8szvcz/image/upload/v1671155394/YUCA-TROZOS_evu7la.jpg",
     },
     {
         id:4,
@@ -34,7 +34,7 @@ export const products =[
         stock: 8,
         descripcion: "Tuberculo fresco para acompañar tus platos",
         categoria: "tuberculo",
-        img: "https://res.cloudinary.com/dt08n3f7k/image/upload/v1670726411/Mango1_jor5wg.jpg",
+        img: "https://res.cloudinary.com/dyj8szvcz/image/upload/v1671155394/PAPA-CRIOLLA_jey3yb.jpg",
     },
     {
         id:5,
@@ -43,7 +43,7 @@ export const products =[
         stock: 7,
         descripcion: "Pulpa lista para hacer tus batidos o jugos",
         categoria: "pulpa",
-        img: "https://res.cloudinary.com/dt08n3f7k/image/upload/v1670726411/Mango1_jor5wg.jpg",
+        img: "https://res.cloudinary.com/dyj8szvcz/image/upload/v1671155833/Fresa_jdstpp.jpg",
     },
     {
         id:6,
@@ -52,6 +52,6 @@ export const products =[
         stock: 7,
         descripcion: "Pulpa lista para hacer tus batidos o jugos",
         categoria: "pulpa",
-        img: "https://res.cloudinary.com/dt08n3f7k/image/upload/v1670726411/Mango1_jor5wg.jpg",
+        img: "https://res.cloudinary.com/dyj8szvcz/image/upload/v1671155828/Guanabana_px02vj.jpg",
     },
 ]

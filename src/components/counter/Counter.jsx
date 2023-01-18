@@ -1,29 +1,32 @@
-import React, {useState} from "react"
+import { useEffect, useState } from "react"
 
-import "./Counter.css"
+const Counter = ({ stock, initial = 1, onAdd }) => {
 
-const Counter = ({initial, stock, onAdd}) => {
+  const [counter, setCounter] = useState(initial)
 
-const [counter, setCounter] = useState(initial);
+  useEffect ( ()=>{
+    setCounter(initial)
+  }, [initial] )
 
-const decrease = () =>{
+  const increment = () => {
+    if (counter < stock) {
+      setCounter(counter + 1)
+    }
+  }
 
-    setCounter(counter - 1)
-}
-
-const increase = () =>{
-
-    setCounter(counter + 1)
-}
+  const decrement = () => {
+    if (counter > initial) {
+      setCounter(counter - 1)
+    }
+  }
 
   return (
-    <div className="counter-container">
-        <button disabled={counter <= 1} onClick={decrease} className="boton">-</button>
-        <span>{counter}</span>
-        <button disabled={counter >= stock} onClick={increase} className="boton">+</button>
-        <div>
-            <button disabled={stock <= 0} onClick={() => onAdd (counter)} >Agregar al carrito</button>
-        </div>
+    <div>
+      <h2>{counter}</h2>
+
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={() => onAdd(counter)}>agregar al carrito</button>
     </div>
   )
 }
