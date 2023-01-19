@@ -52,12 +52,19 @@ const CartContextProvider = ({ children }) => {
   return total
   }
 
+  const deleteProductById = (id)=>{
+      const newArray =cart.filter(product=>product.id !== id)
+
+      setCart(newArray)
+  }
+
   const data = {
     cart,
     addToCart,
     clearCart,
     getQuantityById,
-    getTotalPrice
+    getTotalPrice,
+    deleteProductById
   }
 
   return (

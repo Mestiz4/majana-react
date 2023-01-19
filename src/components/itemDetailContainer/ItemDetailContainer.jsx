@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { products } from '../../products'
+
 
 import { useParams } from "react-router-dom"
 import ItemDetail from '../itemDetail/ItemDetail'
