@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import "./ItemListContainer.css"
 
-import { products } from '../../products'
+
 import ProductsCard from '../productsCard/ProductsCard'
 import { useParams } from 'react-router-dom'
+
+import {getDocs, collection, query, where} from "firebase/firestore"
+import {db} from "../../firebaseConfig"
 
 
 
@@ -15,22 +18,49 @@ const ItemListContainer = ( ) => {
     const [items, setItems] = useState([])
 
     useEffect ( ()=>{
+        
 
-        const productosFiltered = products.filter( productos => productos.categoria === categoryName )
+        const itemCollection = collection(db, "products")
 
-        const task = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(categoryName ? productosFiltered : products)
-            }, 500);
+        if( categoryName ){
+
+            const q = query( itemCollection, where("categoria", "==", categoryName) )
+
+            getDocs(q)
+        .then((res)=> {
+            const products = res.docs.map( product =>{
+                return{
+                    id:product.id,
+                    ...product.data(),
+                }
+            } )
+
+            setItems(products)
         })
-    
-        task
-            .then ((res)=>{setItems(res)})
-            .catch ((err)=>{console.log("se rechazo")})
-    }, [ categoryName ] )
+        .catch((err)=> console.log(err))
 
+        }else{
+            
+            getDocs(itemCollection)
+        .then((res)=> {
+            const products = res.docs.map( product =>{
+                return{
+                    id:product.id,
+                    ...product.data(),
+                }
+            } )
+
+            setItems(products)
+        })
+        .catch((err)=> console.log(err))
+        }
+
+        
     
-    console.log(items)
+        }, [ categoryName ] 
+    
+    )
+
 
   return (
     <div className='cards'>

@@ -15,7 +15,7 @@ const Counter = ({ stock, initial = 1, onAdd }) => {
   }
 
   const decrement = () => {
-    if (counter > initial) {
+    if (counter > 1) {
       setCounter(counter - 1)
     }
   }

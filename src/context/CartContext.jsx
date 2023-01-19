@@ -13,7 +13,7 @@ const CartContextProvider = ({ children }) => {
         if (product.id === element.id) {
           let newProduct = {
             ...product,
-            quantity: product.quantity + element.quantity,
+            quantity: element.quantity,
           }
           return newProduct
         } else {
@@ -44,11 +44,20 @@ const CartContextProvider = ({ children }) => {
     return product?.quantity
   }
 
+  const getTotalPrice = ()=>{
+    
+    const total =cart.reduce((acc, element)=>{
+      return acc + (element.precio*element.quantity)
+  }, 0)
+  return total
+  }
+
   const data = {
     cart,
     addToCart,
     clearCart,
-    getQuantityById
+    getQuantityById,
+    getTotalPrice
   }
 
   return (
