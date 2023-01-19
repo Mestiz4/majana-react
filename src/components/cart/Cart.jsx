@@ -39,7 +39,7 @@ const Cart = () => {
   </div>
   
   {
-    buy ? (<Form cart={cart} getTotalPrice={getTotalPrice} setOrderId={setOrderId} />) : (
+    buy ? (<Form cart={cart} getTotalPrice={getTotalPrice} setOrderId={setOrderId} clearCart={clearCart} />) : (
   <div>
     <button onClick={()=> setBuy(true)}>COMPRAR</button>
     <button onClick={()=> clearCart()} >VACIAR CARRITO</button>
