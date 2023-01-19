@@ -5,6 +5,9 @@ import { products } from '../../products'
 import { useParams } from "react-router-dom"
 import ItemDetail from '../itemDetail/ItemDetail'
 
+import {getDoc, doc, collection} from "firebase/firestore"
+import {db} from '../../firebaseConfig'
+
 const ItemDetailContainer = () => {
 
   const [product, setProduct] = useState({})
@@ -13,8 +16,22 @@ const ItemDetailContainer = () => {
 
   useEffect( ()=>{
 
-    const productSelected = products.find( producto => producto.id === parseInt(id) )
-    setProduct(productSelected)
+    
+
+   /*  const productSelected = products.find( producto => producto.id === parseInt(id) )
+    setProduct(productSelected) */
+    const itemCollection =collection(db, "products")
+    const ref = doc (itemCollection, id)
+    
+    getDoc(ref)
+    .then(res=>{
+      setProduct(
+        {
+          id: res.id,
+          ...res.data()
+        }
+      )
+    })
 
   }, [id])
 
