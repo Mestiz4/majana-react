@@ -2,7 +2,7 @@ import { addDoc, collection } from 'firebase/firestore'
 import React, { useState } from 'react'
 import {db} from "../../firebaseConfig"
 
-const Form = ({cart, getTotalPrice}) => {
+const Form = ({cart, getTotalPrice, setOrderId}) => {
 
   const [userData, setUserData] = useState ({name: "", phone: "", email: ""})
 
@@ -22,6 +22,7 @@ const Form = ({cart, getTotalPrice}) => {
         const orderCollection = collection(db, "orders")
 
         addDoc(orderCollection, order)
+        .then(res =>setOrderId(res.id))
 
 
     }

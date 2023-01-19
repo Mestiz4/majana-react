@@ -7,7 +7,15 @@ const Cart = () => {
     const { cart, clearCart, getTotalPrice, deleteProductById } =  useContext( CartContext )
 
     const [buy, setBuy] =useState (false)
+    const [orderId, setOrderId] =useState (null)
 
+    console.log(orderId)
+  
+    if(orderId){
+      return <div>
+        <p>tu orden de compra es: {orderId}</p>
+      </div>
+    }
 
   return (
     <div>
@@ -31,7 +39,7 @@ const Cart = () => {
   </div>
   
   {
-    buy ? (<Form cart={cart} getTotalPrice={getTotalPrice}/>) : (
+    buy ? (<Form cart={cart} getTotalPrice={getTotalPrice} setOrderId={setOrderId} />) : (
   <div>
     <button onClick={()=> setBuy(true)}>COMPRAR</button>
     <button onClick={()=> clearCart()} >VACIAR CARRITO</button>
