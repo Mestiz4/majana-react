@@ -32,7 +32,7 @@ const Form = () => {
             name= 'lastName' 
             onChange={(event) => setUserData( {...userData, lastName: event.target.value} )} 
             value={userData.lastName} />
-            <button type="submit">Enviar</button>
+            <button type="submit">Finalizar compra</button>
         </form>
     </div>
   )

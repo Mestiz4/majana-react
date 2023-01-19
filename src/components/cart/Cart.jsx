@@ -1,9 +1,12 @@
-import {useContext} from 'react'
+import {useContext, useState} from 'react'
 import { CartContext } from '../../context/CartContext'
+import Form from '../form/Form'
 
 const Cart = () => {
 
     const { cart, clearCart, getTotalPrice, deleteProductById } =  useContext( CartContext )
+
+    const [buy, setBuy] =useState (false)
 
 
   return (
@@ -19,17 +22,26 @@ const Cart = () => {
       )
       )
 }
-    <div>
-    <p>¿Quieres limpiar el carrito?</p>
-    <button onClick={()=> clearCart()} >Si, limpiar carrito</button>
-  </div>
+    
 
   <div>
     <p>Descripción del carrito:</p>
     <p>Cantidad de productos:</p>
     <p>Precio total:{ getTotalPrice() }</p>
   </div>
+  
+  {
+    buy ? (<Form />) : (
+  <div>
+    <button onClick={()=> setBuy(true)}>COMPRAR</button>
+    <button onClick={()=> clearCart()} >VACIAR CARRITO</button>
   </div>
+    )
+  }
+
+
+</div>
+
   )
 }
 

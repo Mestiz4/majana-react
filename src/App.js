@@ -31,7 +31,7 @@ function App() {
       
       <Route path="*" element={<h2>Error 404</h2>} />
 
-      <Route path="/checkout" element={<Form />} />
+      
 
     </Routes>
     </CartContextProvider>
